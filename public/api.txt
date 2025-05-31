@@ -1,0 +1,6 @@
+{
+  "name": "bartest",
+  "isAvailable": 1,
+  "menutype": "image",
+  "images": ["http://localhost:3000/menu1.jpg"]
+}
