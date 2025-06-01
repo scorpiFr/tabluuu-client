@@ -55,7 +55,7 @@ export default function KeenSlider({ images }) {
         )}
         <div ref={sliderRef} className="keen-slider">
           {images.map((url, index) => (
-            <div className="keen-slider__slide number-slide0">
+            <div className="keen-slider__slide number-slide0" key={index}>
               <img src={url} alt={`Menu page ${index + 1}`} />
             </div>
           ))}
