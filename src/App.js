@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-/*
-const apiReturn = {
-  name: "bartest",
-  isAvailable: 1,
-  menutype: "image",
-  images: ["http://localhost:3000/menu1.jpg"],
-};
-*/
-
 let config = {
-  urlPrefix: "http://localhost:3000/",
+  urlPrefix: process.env.REACT_APP_API_URL_PREFIX,
+  imageDirectory: process.env.REACT_APP_IMAGE_DIRECTORY,
 };
+
+console.log("env :", config);
 
 function App() {
   const [barData, setBarData] = useState({
@@ -69,7 +63,10 @@ function App() {
     <div className="App">
       <p className="title">{barData.data?.name?.toUpperCase()}</p>
       {barData.data.name ? (
-        <img src={barData.data.images} alt={`Menu of ${barData.data.name}`} />
+        <img
+          src={`${config.imageDirectory}${barData.data.images[0]}`}
+          alt={`Menu of ${barData.data.name}`}
+        />
       ) : (
         <></>
       )}
