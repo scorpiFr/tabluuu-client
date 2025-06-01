@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+// http://tabluuu.fr:3000?barid=1&table=Table1
+// http://tabluuu.local:3000/?barid=1&table=Table1
+
 let config = {
   urlPrefix: process.env.REACT_APP_API_URL_PREFIX,
   imageDirectory: process.env.REACT_APP_IMAGE_DIRECTORY,
+  barId: new URLSearchParams(window.location.search).get("barid"),
+  table: new URLSearchParams(window.location.search).get("table"),
 };
 
 console.log("env :", config);

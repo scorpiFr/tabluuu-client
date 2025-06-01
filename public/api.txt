@@ -1,5 +1,5 @@
 {
-  "name": "bartest",
+  "name": "Houseganag bar - demo",
   "isAvailable": 1,
   "menutype": "image",
   "images": ["menu1.jpg"]
