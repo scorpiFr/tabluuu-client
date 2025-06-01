@@ -1,0 +1,6 @@
+{
+  "name": "Houseganag bar 2 - demo",
+  "isAvailable": 1,
+  "menutype": "image",
+  "images": ["2/menu2-1.jpg", "2/menu2-2.jpg"]
+}

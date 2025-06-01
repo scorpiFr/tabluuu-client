@@ -11,8 +11,6 @@ let config = {
   table: new URLSearchParams(window.location.search).get("table"),
 };
 
-console.log("env :", config);
-
 function App() {
   const [barData, setBarData] = useState({
     data: [],
@@ -33,7 +31,7 @@ function App() {
       // call api
       resetBarData();
       setBarData((m) => ({ ...m, isLoading: true }));
-      const res = await fetch(config.urlPrefix + "api.txt");
+      const res = await fetch(config.urlPrefix + config.barId + "/api.txt");
       // internet error
       if (!res.ok) {
         console.log("fetching bar data error");

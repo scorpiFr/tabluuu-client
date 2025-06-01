@@ -2,5 +2,5 @@
   "name": "Houseganag bar - demo",
   "isAvailable": 1,
   "menutype": "image",
-  "images": ["menu1.jpg"]
+  "images": ["1/menu1.jpg"]
 }
