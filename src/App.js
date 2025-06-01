@@ -44,6 +44,7 @@ function App() {
       } else {
         // data found
         setBarData((m) => ({ ...m, data: data, error: false }));
+        document.title = data.name;
       }
     } catch (err) {
       console.log(err.message);
