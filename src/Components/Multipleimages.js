@@ -1,20 +1,11 @@
 import KeenSlider from "./KeenSlider.js";
 
-/*
-
-      <img
-        src={`${imageDirectory}${barData.images[0]}`}
-        alt={`Menu of ${barData.name}`}
-      />
-
-      */
-
 export default function Multipleimages({ barData, imageDirectory }) {
+  // construct images full url
   const images = barData.images.map(
-    (currElement, index) => `${imageDirectory}${currElement}`
+    (currElement) => `${imageDirectory}${currElement}`
   );
 
-  console.log(images);
   return (
     <div className="App">
       <p className="title">{barData.name.toUpperCase()}</p>
