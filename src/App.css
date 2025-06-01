@@ -7,3 +7,9 @@
   font-family: "Chewy";
   font-size: 22px;
 }
+
+.error {
+  color: red;
+  font-size: 50px;
+  font-weight: bold;
+}

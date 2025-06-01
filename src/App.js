@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Loader from "./Components/Loader.js";
+import Oneimage from "./Components/Oneimage.js";
+import InternetError from "./Components/InternetError.js";
+import ClosedBar from "./Components/ClosedBar.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
 // http://tabluuu.local:3000/?barid=1&table=Table1
@@ -11,7 +15,7 @@ let config = {
   table: new URLSearchParams(window.location.search).get("table"),
 };
 
-function App() {
+export default function App() {
   const [barData, setBarData] = useState({
     data: [],
     isLoading: false,
@@ -63,19 +67,32 @@ function App() {
     []
   );
 
-  return (
-    <div className="App">
-      <p className="title">{barData.data?.name?.toUpperCase()}</p>
-      {barData.data.name ? (
-        <img
-          src={`${config.imageDirectory}${barData.data.images[0]}`}
-          alt={`Menu of ${barData.data.name}`}
-        />
-      ) : (
-        <></>
-      )}
-    </div>
-  );
-}
+  // loading status
+  if (barData.isLoading) {
+    return <Loader />;
+  }
 
-export default App;
+  // fetch error / no data
+  if (barData.error || !barData.data) {
+    return <InternetError />;
+  }
+
+  // bar not available
+  if (!barData.data.isAvailable) {
+    return <ClosedBar />;
+  }
+
+  // 1 image
+  if (
+    barData.data.menutype === "image" &&
+    Array.isArray(barData.data.images) &&
+    barData.data.images.length === 1
+  ) {
+    return (
+      <Oneimage barData={barData.data} imageDirectory={config.imageDirectory} />
+    );
+  }
+
+  // other cases
+  return <InternetError />;
+}

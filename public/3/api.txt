@@ -1,6 +1,6 @@
 {
-  "name": "Housegang bar 2 - demo",
-  "isAvailable": 1,
+  "name": "Housegang bar 3 - demo",
+  "isAvailable": 0,
   "menutype": "image",
   "images": ["2/menu2-1.jpg", "2/menu2-2.jpg"]
 }
