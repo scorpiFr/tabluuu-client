@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Loader from "./Components/Loader.js";
-import Oneimage from "./Components/Oneimage.js";
 import InternetError from "./Components/InternetError.js";
 import ClosedBar from "./Components/ClosedBar.js";
+import Oneimage from "./Components/Oneimage.js";
+import Multipleimages from "./Components/Multipleimages.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
 // http://tabluuu.local:3000/?barid=1&table=Table1
@@ -90,6 +91,20 @@ export default function App() {
   ) {
     return (
       <Oneimage barData={barData.data} imageDirectory={config.imageDirectory} />
+    );
+  }
+
+  // multiple images
+  if (
+    barData.data.menutype === "image" &&
+    Array.isArray(barData.data.images) &&
+    barData.data.images.length > 1
+  ) {
+    return (
+      <Multipleimages
+        barData={barData.data}
+        imageDirectory={config.imageDirectory}
+      />
     );
   }
 
