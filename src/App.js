@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import Footer from "./Footer";
 import Loader from "./Components/Loader.js";
 import InternetError from "./Components/InternetError.js";
 import ClosedBar from "./Components/ClosedBar.js";
@@ -91,7 +92,13 @@ export default function App() {
     barData.data.images.length === 1
   ) {
     return (
-      <Oneimage barData={barData.data} imageDirectory={config.imageDirectory} />
+      <>
+        <Oneimage
+          barData={barData.data}
+          imageDirectory={config.imageDirectory}
+        />
+        <Footer />
+      </>
     );
   }
 
@@ -102,10 +109,13 @@ export default function App() {
     barData.data.images.length > 1
   ) {
     return (
-      <Multipleimages
-        barData={barData.data}
-        imageDirectory={config.imageDirectory}
-      />
+      <>
+        <Multipleimages
+          barData={barData.data}
+          imageDirectory={config.imageDirectory}
+        />
+        <Footer />
+      </>
     );
   }
 
