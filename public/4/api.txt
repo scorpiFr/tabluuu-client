@@ -1,0 +1,7 @@
+{
+  "name": "La belle étoile - demo",
+  "type": "resto",
+  "isAvailable": 1,
+  "menutype": "image",
+  "images": ["4/menu1.jpg"]
+}
