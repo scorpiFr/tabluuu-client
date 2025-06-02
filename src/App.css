@@ -3,6 +3,16 @@
   background-color: #b0b1b3;
 }
 
+.App-resto {
+  text-align: center;
+  background-color: #c27c42;
+}
+
+.App-bar {
+  text-align: center;
+  background-color: #b0b1b3;
+}
+
 .title {
   font-family: "Chewy";
   font-size: 22px;

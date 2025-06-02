@@ -1,5 +1,6 @@
 {
   "name": "Housegang bar - demo",
+  "type": "bar",
   "isAvailable": 1,
   "menutype": "image",
   "images": ["1/menu1.jpg"]

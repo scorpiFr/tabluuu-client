@@ -50,6 +50,7 @@ export default function App() {
         // data found
         setBarData((m) => ({ ...m, data: data, error: false }));
         document.title = data.name;
+        document.body.className = data.type === "bar" ? "bar" : "resto";
       }
     } catch (err) {
       console.log(err.message);
