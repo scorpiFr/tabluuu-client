@@ -6,6 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
 }
 
 body.bar {
@@ -37,4 +39,7 @@ code {
   background-color: #000000;
   color: #ffffff;
   text-align: center;
+}
+.menu {
+  max-width: 800px;
 }

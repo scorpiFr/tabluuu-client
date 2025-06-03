@@ -6,6 +6,7 @@ import InternetError from "./Components/InternetError.js";
 import ClosedBar from "./Components/ClosedBar.js";
 import Oneimage from "./Components/Oneimage.js";
 import Multipleimages from "./Components/Multipleimages.js";
+import Menu from "./Components/Menu.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
 // http://tabluuu.local:3000/?barid=1&table=Table1
@@ -116,6 +117,16 @@ export default function App() {
         />
         <Footer />
       </>
+    );
+  }
+
+  // menu
+  if (barData.data.menutype === "menu") {
+    return (
+      <div className="menu">
+        <Menu barData={barData.data} imageDirectory={config.imageDirectory} />
+        <Footer />
+      </div>
     );
   }
 

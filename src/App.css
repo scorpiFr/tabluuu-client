@@ -23,3 +23,59 @@
   font-size: 50px;
   font-weight: bold;
 }
+
+.itemTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.lineHeader {
+  text-align: left;
+  padding-left: 20px;
+  background-color: #000;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.lineHeader:first-letter {
+  text-transform: uppercase;
+}
+
+.flex-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  /*background-color: dodgerblue;*/
+  padding: 10px;
+  max-width: 800px;
+}
+
+img.itemPreview {
+  max-height: 50px;
+  max-width: 50px;
+  height: auto;
+  width: auto;
+}
+
+.cadre {
+  text-align: left;
+  padding: 1px;
+  display: flex;
+  margin: 1px auto;
+  max-width: 400px;
+}
+
+.cadre a {
+  text-align: left;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.cadre .texte {
+  text-align: left;
+}
