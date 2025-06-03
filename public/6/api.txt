@@ -28,6 +28,13 @@
             "description" : "(Rhum) Menthe fraîche, citron, sucre de canne, eau gazeuse (+ fraise pour la version fraise)",
             "price" : "8",
             "image" : "6/Site_Mojito_Fraise.jpg"
+          },
+          {
+            "id": "39",
+            "name" : "Sex on th beach",
+            "description" : "(Vodka) (Crème de pêche) ananas, orange, cranberry",
+            "price" : "10",
+            "image" : "6/sex_on_the_beach_site.jpg"
           }
         ]
       },
