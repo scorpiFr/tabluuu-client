@@ -3,13 +3,15 @@ export default function Item({ item, imageDirectory }) {
   const image = !item.image ? (
     ""
   ) : (
-    <a href={`${imageDirectory}${item.image}`} target="_blank">
-      <img
-        className="itemPreview"
-        src={`${imageDirectory}${item.image}`}
-        alt="Item"
-      />
-    </a>
+    <div className="image">
+      <a href={`${imageDirectory}${item.image}`} target="_blank">
+        <img
+          className="itemPreview"
+          src={`${imageDirectory}${item.image}`}
+          alt="Item"
+        />
+      </a>
+    </div>
   );
 
   return (
