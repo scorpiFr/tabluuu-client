@@ -1,0 +1,62 @@
+{
+  "name": "Bar thunder - demo",
+  "type": "bar",
+  "isAvailable": 1,
+  "menutype": "menu",
+  "lines": [
+      {
+        "id": "1234",
+        "name": "softs",
+        "items": [
+          {
+            "id": "1",
+            "name": "Zest Light",
+            "description" : "(Vodka ou Rhum ou Téquila) Fraise, orange, ananas, citron et grenadine",
+            "price" : "8",
+            "image" : "6/Site_zest_light.jpg"
+          },
+          {
+            "id": "2",
+            "name" : "Pina Colada",
+            "description" : "(Rhum) Ananas, crème de coco",
+            "price" : "8",
+            "image" : "6/Site_Pina.jpg"
+          },
+          {
+            "id": "3",
+            "name" : "Mojito Fraise ou Normal",
+            "description" : "(Rhum) Menthe fraîche, citron, sucre de canne, eau gazeuse (+ fraise pour la version fraise)",
+            "price" : "8",
+            "image" : "6/Site_Mojito_Fraise.jpg"
+          }
+        ]
+      },
+      {
+        "id": "1235",
+        "name": "softs 2",
+        "items": [
+          {
+            "id": "10",
+            "name": "Zest Light",
+            "description" : "(Vodka ou Rhum ou Téquila) Fraise, orange, ananas, citron et grenadine",
+            "price" : "8",
+            "image" : ""
+          },
+          {
+            "id": "20",
+            "name" : "Pina Colada",
+            "description" : "(Rhum) Ananas, crème de coco",
+            "price" : "8",
+            "image" : "6/Site_Pina.jpg"
+          },
+          {
+            "id": "30",
+            "name" : "Mojito Fraise ou Normal",
+            "description" : "(Rhum) Menthe fraîche, citron, sucre de canne, eau gazeuse (+ fraise pour la version fraise)",
+            "price" : "8",
+            "image" : "6/Site_Mojito_Fraise.jpg"
+          }
+        ]
+      }
+  ]
+}
