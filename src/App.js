@@ -123,10 +123,12 @@ export default function App() {
   // menu
   if (barData.data.menutype === "menu") {
     return (
-      <div className="menu">
-        <Menu barData={barData.data} imageDirectory={config.imageDirectory} />
-        <Footer />
-      </div>
+      <center>
+        <div className="menu">
+          <Menu barData={barData.data} imageDirectory={config.imageDirectory} />
+          <Footer />
+        </div>
+      </center>
     );
   }
 
