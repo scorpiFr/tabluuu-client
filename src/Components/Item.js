@@ -1,13 +1,18 @@
 export default function Item({ item, imageDirectory }) {
   const desc = !item.description.length ? "" : <p>{item.description}</p>;
+  const miniatureUrl = item.miniature ? item.miniature : item.image;
   const image = !item.image ? (
     ""
   ) : (
     <div className="image">
-      <a href={`${imageDirectory}${item.image}`} target="_blank">
+      <a
+        href={`${imageDirectory}${item.image}`}
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           className="itemPreview"
-          src={`${imageDirectory}${item.image}`}
+          src={`${imageDirectory}${miniatureUrl}`}
           alt="Item"
         />
       </a>
