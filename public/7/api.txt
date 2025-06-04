@@ -1,0 +1,112 @@
+{
+  "name": "La fontaine aux frites - demo",
+  "type": "resto",
+  "isAvailable": 1,
+  "menutype": "menu",
+  "lines": [
+      {
+        "id": "1234",
+        "name": "Assiettes",
+        "items": [
+          {
+            "id": "1",
+            "name": "Assiette kebab",
+            "description" : "(Avec Frites Et Boisson 33 Cl)",
+            "price" : "15",
+            "image" : "7/assiette_kebab.png",
+            "miniature" : ""
+          },
+          {
+            "id": "2",
+            "name" : "Assiette americaine",
+            "description" : "(Avec Frites Et Boisson 33 Cl)",
+            "price" : "15",
+            "image" : "7/assiette_americaine.png",
+            "miniature" : ""
+          }
+        ]
+      },
+      {
+        "id": "1235",
+        "name": "Burgers",
+        "items": [
+          {
+            "id": "10",
+            "name": "Menu kebab",
+            "description" : "Sandwitch, frites et boissons",
+            "price" : "10",
+            "image" : "7/kebab_frites.png",
+            "miniature" : ""
+          },
+          {
+            "id": "20",
+            "name" : "Kebab",
+            "description" : "Sandwitch seul",
+            "price" : "8",
+            "image" : "7/kebab_seul.png",
+            "miniature" : ""
+          },
+          {
+            "id": "30",
+            "name" : "Menu maxi kebab",
+            "description" : "Sandwitch, frites et boissons",
+            "price" : "12",
+            "image" : "7/menu-maxi-kebab.jpg",
+            "miniature" : ""
+          },
+          {
+            "id": "40",
+            "name" : "Maxi kebab",
+            "description" : "Sandwitch seul",
+            "price" : "10",
+            "image" : "7/maxi-kebab.jpg",
+            "miniature" : ""
+          }
+        ]
+      },
+      {
+        "id": "234",
+        "name": "Paninis",
+        "items": [
+          {
+            "id": "50",
+            "name": "Menu Panini",
+            "description" : "(Kebab, Américain, Kofté, Escalope, Ou 3 Fromages + Frites Et Boisson 33 Cl)",
+            "price" : "8",
+            "image" : "7/panini.jpg",
+            "miniature" : ""
+          },
+          {
+            "id": "51",
+            "name" : "Panini Au Choix",
+            "description" : "(Kebab, Américain, Kofté, Escalope, Ou 3 Fromages + Frites)",
+            "price" : "6",
+            "image" : "7/panini.jpg",
+            "miniature" : ""
+          }
+        ]
+      },
+      {
+        "id": "34",
+        "name": "Extra",
+        "items": [
+          {
+            "id": "60",
+            "name": "Extra sauce",
+            "description" : "(Harissa, Mayonnaise, Ketchup, Sauce Blanche, Moutarde, Samouraï)",
+            "price" : "0.20",
+            "image" : "",
+            "miniature" : ""
+          },
+          {
+            "id": "61",
+            "name" : "Extra cheddar",
+            "description" : "Tranche de chedddar supplémentaire",
+            "price" : "0.5",
+            "image" : "",
+            "miniature" : ""
+          }
+        ]
+      }
+  ]
+}
