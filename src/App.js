@@ -7,6 +7,7 @@ import ClosedBar from "./Components/ClosedBar.js";
 import Oneimage from "./Components/Oneimage.js";
 import Multipleimages from "./Components/Multipleimages.js";
 import Menu from "./Components/Menu.js";
+import OtherCaseError from "./Components/OtherCaseError.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
 // http://tabluuu.local:3000/?barid=1&table=Table1
@@ -133,5 +134,5 @@ export default function App() {
   }
 
   // other cases
-  return <InternetError />;
+  return <OtherCaseError />;
 }
