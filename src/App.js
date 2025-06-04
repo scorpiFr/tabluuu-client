@@ -35,6 +35,46 @@ export default function App() {
     });
   }
 
+  async function sendMail(commentary, lines) {
+    const price = "68 €";
+    const rnd = Math.floor(Math.random() * 100000000);
+    let htmlContent = commentary.replace("\n", "<br/>");
+
+    htmlContent =
+      "<html><head></head><body>" +
+      "<p>" +
+      htmlContent +
+      "</p>" +
+      "</body></html>";
+
+    const body = {
+      sender: {
+        name: "tabluuu",
+        email: "camille.khalaghi@gmail.com",
+      },
+      to: [
+        {
+          email: "camille.khalaghi@gmail.com",
+          name: "Camille",
+        },
+      ],
+      subject: `Table_4 - ${price} - ${rnd}`,
+      htmlContent: htmlContent,
+    };
+
+    const headers = {
+      Accept: "application/json",
+      "api-key":
+        "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",
+      "Content-Types": "application/json",
+    };
+    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+      body: JSON.stringify(body),
+      headers: headers,
+      method: "POST",
+    });
+  }
+
   async function fetchBarData() {
     try {
       // call api
@@ -143,6 +183,7 @@ export default function App() {
             barData={barData.data}
             imageDirectory={config.imageDirectory}
             setBarData={setBarData}
+            sendMail={sendMail}
           />
           <Footer />
         </div>

@@ -8,6 +8,7 @@ export default function Panier({
   addOrder,
   subtractOrder,
   handlePopulateLastOrder,
+  sendMail,
 }) {
   const [commentary, setCommentary] = useState("");
   const [isLoading, setIsLoading] = useState(0);
@@ -18,6 +19,8 @@ export default function Panier({
     setIsLoading(1);
     // populate last order
     handlePopulateLastOrder(commentary);
+    // sending mail
+    sendMail(commentary, lines);
     // unloading status
     setIsLoading(0);
     return false;

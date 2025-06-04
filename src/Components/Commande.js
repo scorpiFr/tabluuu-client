@@ -3,7 +3,12 @@ import ItemLineListOrder from "./ItemLineListOrder.js";
 import Panier from "./Panier.js";
 import LastOrder from "./LastOrder.js";
 
-export default function Commande({ barData, imageDirectory, setBarData }) {
+export default function Commande({
+  barData,
+  imageDirectory,
+  setBarData,
+  sendMail,
+}) {
   const [nbrItemOrdered, setNbrItemOrdered] = useState(0);
   const [lastOrder, setLastOrder] = useState({ commentary: "", items: [] });
 
@@ -12,20 +17,19 @@ export default function Commande({ barData, imageDirectory, setBarData }) {
   }
 
   function populateLastOrder(commentary) {
-    let res = { commentary: commentary, items: [] };
+    let lastOrderNewData = { commentary: commentary, items: [] };
     for (let cptL in barData.lines) {
       for (let cptI in barData.lines[cptL].items) {
         if (barData.lines[cptL].items[cptI].qty > 0) {
-          res.items.push({
+          lastOrderNewData.items.push({
             ...barData.lines[cptL].items[cptI],
           });
           barData.lines[cptL].items[cptI].qty = 0;
         }
       }
     }
-    console.log(res);
     setBarData((b) => ({ ...b, data: barData }));
-    setLastOrder(res);
+    setLastOrder(lastOrderNewData);
     setNbrItemOrdered(0);
   }
 
@@ -135,6 +139,7 @@ export default function Commande({ barData, imageDirectory, setBarData }) {
             addOrder={handleAddOrder}
             subtractOrder={handleSubtractOrder}
             handlePopulateLastOrder={populateLastOrder}
+            sendMail={sendMail}
           />
         </div>
       </div>
