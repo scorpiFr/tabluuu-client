@@ -18,8 +18,7 @@ let config = {
   imageDirectory: process.env.REACT_APP_IMAGE_DIRECTORY,
   barId: new URLSearchParams(window.location.search).get("barid"),
   table: new URLSearchParams(window.location.search).get("table"),
-  sibKey:
-    "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",
+  sibKey: process.env.REACT_APP_BREVO_API_KEY,
 };
 
 export default function App() {
