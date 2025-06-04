@@ -7,6 +7,7 @@ import ClosedBar from "./Components/ClosedBar.js";
 import Oneimage from "./Components/Oneimage.js";
 import Multipleimages from "./Components/Multipleimages.js";
 import Menu from "./Components/Menu.js";
+import Commande from "./Components/Commande.js";
 import OtherCaseError from "./Components/OtherCaseError.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
@@ -133,6 +134,21 @@ export default function App() {
     );
   }
 
+  // commande
+  if (barData.data.menutype === "commande") {
+    return (
+      <center>
+        <div className="menu">
+          <Commande
+            barData={barData.data}
+            imageDirectory={config.imageDirectory}
+            setBarData={setBarData}
+          />
+          <Footer />
+        </div>
+      </center>
+    );
+  }
   // other cases
   return <OtherCaseError />;
 }
