@@ -17,10 +17,10 @@ export default function Panier({
     // loading status
     e.preventDefault();
     setIsLoading(1);
-    // populate last order
-    handlePopulateLastOrder(commentary);
     // sending mail
     sendMail(commentary, lines);
+    // populate last order
+    handlePopulateLastOrder(commentary);
     // unloading status
     setIsLoading(0);
     return false;

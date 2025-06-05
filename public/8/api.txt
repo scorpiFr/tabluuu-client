@@ -3,6 +3,8 @@
   "type": "bar",
   "isAvailable": 1,
   "menutype": "commande",
+  "email" : "scorpiFr@gmail.com",
+  "email_service" : "camille.khalaghi@gmail.com",
   "lines": [
       {
         "id": 1234,
@@ -37,7 +39,7 @@
           },
           {
             "id": 39,
-            "name" : "Sex on th beach",
+            "name" : "Sex on the beach",
             "description" : "(Vodka) (Crème de pêche) ananas, orange, cranberry",
             "price" : "10",
             "image" : "6/sex_on_the_beach_site.jpg",

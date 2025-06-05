@@ -37,32 +37,63 @@ export default function App() {
   }
 
   async function sendMail(commentary, lines) {
-    const price = "68 €";
-    const rnd = Math.floor(Math.random() * 100000000);
-    let htmlContent = commentary.replace("\n", "<br/>");
+    // commentary
+    const commentaryContent =
+      commentary.length <= 0
+        ? ""
+        : "<div style='color: red;'>" +
+          commentary.replace(/\n/g, "<br />") +
+          "</div><br />";
 
-    htmlContent =
+    // price + orderContent
+    let price = 0;
+    let orderContent = "";
+    for (let cptL in lines) {
+      for (let cptI in lines[cptL].items) {
+        if (lines[cptL].items[cptI].qty > 0) {
+          orderContent +=
+            lines[cptL].items[cptI].qty <= 1
+              ? ""
+              : lines[cptL].items[cptI].qty + " - ";
+          orderContent += lines[cptL].items[cptI].name + "<br />";
+          price +=
+            lines[cptL].items[cptI].qty *
+            parseFloat(lines[cptL].items[cptI].price);
+        }
+      }
+    }
+
+    // email
+    const email =
+      barData.data.email_service.length > 0
+        ? barData.data.email_service
+        : barData.data.email;
+
+    // html content
+    const htmlContent =
       "<html><head></head><body>" +
-      "<p>" +
-      htmlContent +
-      "</p>" +
+      commentaryContent +
+      price +
+      " €<br />" +
+      orderContent +
       "</body></html>";
 
     const body = {
       sender: {
-        name: "tabluuu",
-        email: "camille.khalaghi@gmail.com",
+        name: config.table ?? "Tabluuu",
+        email: email,
       },
       to: [
         {
-          email: "camille.khalaghi@gmail.com",
-          name: "Camille",
+          name: email,
+          email: email,
         },
       ],
-      subject: `Table_4 - ${price} - ${rnd}`,
+      subject: `${config.table ?? "Tabluuu"} - ${price} € - ${Math.floor(
+        Math.random() * 100000000
+      )}`,
       htmlContent: htmlContent,
     };
-
     const headers = {
       Accept: "application/json",
       "api-key": config.sibKey,
@@ -73,6 +104,9 @@ export default function App() {
       headers: headers,
       method: "POST",
     });
+    if (!res.ok) {
+      console.log("email not sent", res, JSON.stringify(body));
+    }
   }
 
   async function fetchBarData() {
