@@ -118,7 +118,7 @@ export default function Commande({
     );
   }
 
-  // 1 column
+  // 1 column + panier
   return (
     <div className={`menu ${appClassName}`}>
       <p className="title">{barData.name.toUpperCase()}</p>
@@ -140,6 +140,7 @@ export default function Commande({
             subtractOrder={handleSubtractOrder}
             handlePopulateLastOrder={populateLastOrder}
             sendMail={sendMail}
+            barType={barData.type}
           />
         </div>
       </div>

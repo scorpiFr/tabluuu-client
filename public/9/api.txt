@@ -1,6 +1,6 @@
 {
   "name": "La fontaine aux frites - demo",
-  "type": "resto",
+  "type": "kebab",
   "isAvailable": 1,
   "menutype": "commande",
   "email" : "scorpiFr@gmail.com",

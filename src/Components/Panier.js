@@ -9,6 +9,7 @@ export default function Panier({
   subtractOrder,
   handlePopulateLastOrder,
   sendMail,
+  barType,
 }) {
   const [commentary, setCommentary] = useState("");
   const [isLoading, setIsLoading] = useState(0);
@@ -51,7 +52,19 @@ export default function Panier({
     return <Loader />;
   }
 
+  // bill
   const bill = getBill();
+
+  // render functions
+  let commentaryExample = "";
+  if (barType === "bar") {
+    commentaryExample = "des glacons, pas de citrons svp";
+  } else if (barType === "kebab") {
+    commentaryExample =
+      "sauce algérienne, cannette de fanta et pas d'oignons svp";
+  } else if (barType === "resto") {
+    commentaryExample = "viande a point svp";
+  }
   return (
     <>
       <div className="panierHeader">Panier</div>
@@ -77,8 +90,9 @@ export default function Panier({
           Total: {bill}€ <br />
           Commentaires :
         </p>
+        <p className="commentaryExample">ex : {commentaryExample}</p>
         <textarea
-          placeholder="Avec des glaçons svp"
+          placeholder={commentaryExample}
           value={commentary}
           onChange={(e) => setCommentary(e.target.value)}
         />
