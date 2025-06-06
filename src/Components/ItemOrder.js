@@ -50,30 +50,32 @@ export default function ItemOrder({
           {itemData.name} - {itemData.price} €
         </p>
         {desc}
-        {itemData.qty === 0 ? (
-          <button
-            className="button-20"
-            onClick={() => handleAddOrder(itemData.id)}
-          >
-            Ajouter
-          </button>
-        ) : (
-          <>
-            <button
-              className="button-20"
-              onClick={() => handleSubstractsOrder(itemData.id)}
-            >
-              -
-            </button>
-            {itemData.qty}
+        <div classNAme="buttons">
+          {itemData.qty === 0 ? (
             <button
               className="button-20"
               onClick={() => handleAddOrder(itemData.id)}
             >
-              +
+              Ajouter
             </button>
-          </>
-        )}
+          ) : (
+            <>
+              <button
+                className="button-20"
+                onClick={() => handleSubstractsOrder(itemData.id)}
+              >
+                -
+              </button>
+              {itemData.qty}
+              <button
+                className="button-20"
+                onClick={() => handleAddOrder(itemData.id)}
+              >
+                +
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
