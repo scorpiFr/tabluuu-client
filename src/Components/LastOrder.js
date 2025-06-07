@@ -48,13 +48,13 @@ export default function LastOrder({ lastOrder, imageDirectory, barType }) {
       })}
       <p className="orderCommentaryLine">
         Total: {bill}€ <br />
-        Commentaires :
+        Commentaires (optionnel) :
       </p>
       <p className="commentaryExample">ex : {commentaryExample}</p>
       <textarea
         disabled
         id="commentaire"
-        placeholder={commentaryExample}
+        placeholder={`(optionnel) : ${commentaryExample}`}
         value={lastOrder.commentary}
       />
       <br />

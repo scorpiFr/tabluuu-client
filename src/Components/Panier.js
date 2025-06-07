@@ -88,18 +88,18 @@ export default function Panier({
       <form onSubmit={handleSubmit}>
         <p className="orderCommentaryLine">
           Total: {bill}€ <br />
-          Commentaires :
+          Commentaires (optionnel) :
         </p>
         <p className="commentaryExample">ex : {commentaryExample}</p>
         <textarea
           id="commentaire"
-          placeholder={commentaryExample}
+          placeholder={`(optionnel) : ${commentaryExample}`}
           value={commentary}
           onChange={(e) => setCommentary(e.target.value)}
         />
         <br />
         <button className="button-20" onClick={handleSubmit}>
-          Commander
+          Envoyer la commande
         </button>
       </form>
     </>
