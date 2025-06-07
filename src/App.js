@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import config from "./config.js";
+import sendMail_brevo from "./Components/sendMail_brevo.js";
 import Footer from "./Footer";
 import Loader from "./Components/Loader.js";
 import InternetError from "./Components/InternetError.js";
@@ -12,15 +14,6 @@ import OtherCaseError from "./Components/OtherCaseError.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
 // http://tabluuu.local:3000/?barid=1&table=Table1
-
-let config = {
-  urlPrefix: process.env.REACT_APP_API_URL_PREFIX,
-  imageDirectory: process.env.REACT_APP_IMAGE_DIRECTORY,
-  barId: new URLSearchParams(window.location.search).get("barid"),
-  table: new URLSearchParams(window.location.search).get("table"),
-  sibKey: process.env.REACT_APP_BREVO_API_KEY,
-  senderEmail: process.env.REACT_APP_BREVO_SENDER_EMAIL,
-};
 
 export default function App() {
   const [barData, setBarData] = useState({
@@ -83,42 +76,6 @@ export default function App() {
     const subject = `${price} € - ${Math.floor(Math.random() * 100000000)}`;
     // sending mail
     sendMail_brevo(config.table, htmlContent, subject, email, "Tabluuu");
-  }
-
-  async function sendMail_brevo(
-    tableName,
-    htmlContent,
-    subject,
-    email,
-    serviceName
-  ) {
-    const body = {
-      sender: {
-        name: tableName ?? serviceName,
-        email: config.senderEmail,
-      },
-      to: [
-        {
-          name: email,
-          email: email,
-        },
-      ],
-      subject: subject,
-      htmlContent: htmlContent,
-    };
-    const headers = {
-      Accept: "application/json",
-      "api-key": config.sibKey,
-      "Content-Types": "application/json",
-    };
-    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
-      body: JSON.stringify(body),
-      headers: headers,
-      method: "POST",
-    });
-    if (!res.ok) {
-      console.log("email not sent", res, JSON.stringify(body));
-    }
   }
 
   async function fetchBarData() {
