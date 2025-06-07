@@ -35,8 +35,7 @@ export default function App() {
       error: false,
     });
   }
-
-  async function sendMail(commentary, lines) {
+  function sendMail(commentary, lines) {
     // commentary
     const commentaryContent =
       commentary.length <= 0
@@ -63,24 +62,46 @@ export default function App() {
       }
     }
 
-    // email
-    const email =
-      barData.data.email_service.length > 0
-        ? barData.data.email_service
-        : barData.data.email;
-
     // html content
     const htmlContent =
       "<html><head></head><body>" +
+      config.table +
+      "<br />" +
       commentaryContent +
       price +
       " €<br />" +
       orderContent +
       "</body></html>";
 
+    // email
+    const email =
+      barData.data.email_service.length > 0
+        ? barData.data.email_service
+        : barData.data.email;
+    // subject
+    const subject = `${price} € - ${Math.floor(Math.random() * 100000000)}`;
+    // sending mail
+    sendMail_brevo(
+      config.table,
+      htmlContent,
+      subject,
+      email,
+      "Tabluuu",
+      config.sibKey
+    );
+  }
+
+  async function sendMail_brevo(
+    tableName,
+    htmlContent,
+    subject,
+    email,
+    serviceName,
+    sibKey
+  ) {
     const body = {
       sender: {
-        name: config.table ?? "Tabluuu",
+        name: tableName ?? serviceName,
         email: email,
       },
       to: [
@@ -89,14 +110,12 @@ export default function App() {
           email: email,
         },
       ],
-      subject: `${config.table ?? "Tabluuu"} - ${price} € - ${Math.floor(
-        Math.random() * 100000000
-      )}`,
+      subject: subject,
       htmlContent: htmlContent,
     };
     const headers = {
       Accept: "application/json",
-      "api-key": config.sibKey,
+      "api-key": sibKey,
       "Content-Types": "application/json",
     };
     const res = await fetch("https://api.brevo.com/v3/smtp/email", {
