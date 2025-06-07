@@ -93,7 +93,11 @@ export default function Commande({
             />
           </div>
           <div className="lineList1">
-            <LastOrder lastOrder={lastOrder} imageDirectory={imageDirectory} />
+            <LastOrder
+              lastOrder={lastOrder}
+              imageDirectory={imageDirectory}
+              barType={barData.type}
+            />
           </div>
         </div>
       </div>

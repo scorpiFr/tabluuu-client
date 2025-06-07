@@ -50,7 +50,7 @@ export default function ItemOrder({
           {itemData.name} - {itemData.price} €
         </p>
         {desc}
-        <div classNAme="buttons">
+        <div className="buttons">
           {itemData.qty === 0 ? (
             <button
               className="button-20"

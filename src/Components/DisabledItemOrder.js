@@ -33,7 +33,7 @@ export default function DisabledItemOrder({ itemData, imageDirectory }) {
           {itemData.name} - {itemData.price} €
         </p>
         {desc}
-        <>
+        <div className="buttons">
           <button className="button-20" disabled="disabled">
             -
           </button>
@@ -41,7 +41,7 @@ export default function DisabledItemOrder({ itemData, imageDirectory }) {
           <button className="button-20" disabled="disabled">
             +
           </button>
-        </>
+        </div>
       </div>
     </div>
   );
