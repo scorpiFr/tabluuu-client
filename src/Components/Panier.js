@@ -92,6 +92,7 @@ export default function Panier({
         </p>
         <p className="commentaryExample">ex : {commentaryExample}</p>
         <textarea
+          id="commentaire"
           placeholder={commentaryExample}
           value={commentary}
           onChange={(e) => setCommentary(e.target.value)}

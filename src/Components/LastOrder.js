@@ -53,6 +53,7 @@ export default function LastOrder({ lastOrder, imageDirectory, barType }) {
       <p className="commentaryExample">ex : {commentaryExample}</p>
       <textarea
         disabled
+        id="commentaire"
         placeholder={commentaryExample}
         value={lastOrder.commentary}
       />

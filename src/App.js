@@ -19,6 +19,7 @@ let config = {
   barId: new URLSearchParams(window.location.search).get("barid"),
   table: new URLSearchParams(window.location.search).get("table"),
   sibKey: process.env.REACT_APP_BREVO_API_KEY,
+  senderEmail: process.env.REACT_APP_BREVO_SENDER_EMAIL,
 };
 
 export default function App() {
@@ -81,14 +82,7 @@ export default function App() {
     // subject
     const subject = `${price} € - ${Math.floor(Math.random() * 100000000)}`;
     // sending mail
-    sendMail_brevo(
-      config.table,
-      htmlContent,
-      subject,
-      email,
-      "Tabluuu",
-      config.sibKey
-    );
+    sendMail_brevo(config.table, htmlContent, subject, email, "Tabluuu");
   }
 
   async function sendMail_brevo(
@@ -96,13 +90,12 @@ export default function App() {
     htmlContent,
     subject,
     email,
-    serviceName,
-    sibKey
+    serviceName
   ) {
     const body = {
       sender: {
         name: tableName ?? serviceName,
-        email: email,
+        email: config.senderEmail,
       },
       to: [
         {
@@ -115,7 +108,7 @@ export default function App() {
     };
     const headers = {
       Accept: "application/json",
-      "api-key": sibKey,
+      "api-key": config.sibKey,
       "Content-Types": "application/json",
     };
     const res = await fetch("https://api.brevo.com/v3/smtp/email", {

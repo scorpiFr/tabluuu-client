@@ -3,8 +3,8 @@
   "type": "bar",
   "isAvailable": 1,
   "menutype": "commande",
-  "email" : "scorpiFr@gmail.com",
-  "email_service" : "camille.khalaghi@gmail.com",
+  "email" : "contact.tabluuu@gmail.com",
+  "email_service" : "contact.tabluuu@gmail.com",
   "lines": [
       {
         "id": 1234,
