@@ -11,10 +11,6 @@ import Multipleimages from "./Components/Multipleimages.js";
 import Menu from "./Components/Menu.js";
 import Commande from "./Components/Commande.js";
 import OtherCaseError from "./Components/OtherCaseError.js";
-import getCurrentDateTime from "./Components/getCurrentDateTime.js";
-
-// http://tabluuu.fr:3000?barid=1&table=Table1
-// http://tabluuu.local:3000/?barid=1&table=Table1
 
 export default function App() {
   const [barData, setBarData] = useState({
@@ -56,11 +52,13 @@ export default function App() {
         }
       }
     }
+    // table name
+    const tableName = config.table.length > 0 ? config.table : "Tabluuu";
 
     // html content
     const htmlContent =
       "<html><head></head><body>" +
-      config.table +
+      tableName +
       "<br />" +
       commentaryContent +
       price +
@@ -73,10 +71,9 @@ export default function App() {
       barData.data.email_service.length > 0
         ? barData.data.email_service
         : barData.data.email;
-    // subject
-    const subject = `${price} € - ${getCurrentDateTime()} - ${config.table}`;
+
     // sending mail
-    sendMail_brevo(config.table, htmlContent, subject, email, "Tabluuu");
+    sendMail_brevo(config.barId, tableName, price, htmlContent, email);
   }
 
   async function fetchBarData() {

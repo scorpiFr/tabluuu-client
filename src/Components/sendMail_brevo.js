@@ -1,38 +1,23 @@
 import config from "../config.js";
 
-async function sendMail_brevo(
-  tableName,
-  htmlContent,
-  subject,
-  email,
-  serviceName
-) {
-  const body = {
-    sender: {
-      name: tableName ?? serviceName,
-      email: config.senderEmail,
-    },
-    to: [
-      {
-        name: email,
-        email: email,
-      },
-    ],
-    subject: subject,
-    htmlContent: htmlContent,
-  };
-  const headers = {
-    Accept: "application/json",
-    "api-key": config.sibKey,
-    "Content-Types": "application/json",
-  };
-  const res = await fetch("https://api.brevo.com/v3/smtp/email", {
-    body: JSON.stringify(body),
-    headers: headers,
-    method: "POST",
-  });
-  if (!res.ok) {
-    console.log("email not sent", res, JSON.stringify(body));
+async function sendMail_brevo(barid, tableName, price, htmlContent, email) {
+  const formData = new FormData();
+  formData.append("barid", barid);
+  formData.append("table", tableName);
+  formData.append("price", price);
+  formData.append("receiverEmail", email);
+  formData.append("htmlContent", htmlContent);
+
+  try {
+    const response = await fetch(`${config.tabluuu_server}/sendmail`, {
+      method: "POST",
+      body: formData,
+      // Pas besoin de préciser 'Content-Type', FormData le gère tout seul (multipart/form-data)
+    });
+
+    if (!response.ok) throw new Error("Erreur réseau");
+  } catch (error) {
+    console.error("Erreur lors de l'envoi :", error);
   }
 }
 

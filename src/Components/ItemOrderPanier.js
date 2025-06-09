@@ -21,7 +21,7 @@ export default function ItemOrderPanier({
   return (
     <div className="cadre">
       <div className="texte">
-        <p className="panierItemTitle" nowrap>
+        <p className="panierItemTitle" nowrap="true">
           {itemData.name}
           {/* &nbsp;({itemData.price * itemData.qty}&nbsp;€) */}
           &nbsp;
