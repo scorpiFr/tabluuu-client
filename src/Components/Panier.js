@@ -1,6 +1,7 @@
 import { useState } from "react";
-import ItemOrder from "./ItemOrder";
+import ItemOrderPanier from "./ItemOrderPanier";
 import Loader from "./Loader.js";
+import TooltipWrapper from "./TooltipWrapper.js";
 
 export default function Panier({
   lines,
@@ -74,7 +75,7 @@ export default function Panier({
           .filter((i) => i.qty > 0)
           .map(function (item) {
             return (
-              <ItemOrder
+              <ItemOrderPanier
                 itemData={item}
                 imageDirectory={imageDirectory}
                 addOrder={addOrder}
@@ -84,13 +85,14 @@ export default function Panier({
             );
           })
       )}
-      <p></p>
       <form onSubmit={handleSubmit}>
         <p className="orderCommentaryLine">
-          Total: {bill}€ <br />
-          Commentaires (optionnel) :
+          Total: {bill}€<br />
+          <br />
+          Commentaire (optionnel)
+          <TooltipWrapper message={`ex : ${commentaryExample}`} />
+          &nbsp;:
         </p>
-        <p className="commentaryExample">ex : {commentaryExample}</p>
         <textarea
           id="commentaire"
           placeholder={`(optionnel) : ${commentaryExample}`}

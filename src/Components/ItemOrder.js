@@ -67,7 +67,7 @@ export default function ItemOrder({
               >
                 -
               </button>
-              {itemData.qty}
+              &nbsp;{itemData.qty}&nbsp;
               <button
                 className="button-20"
                 onClick={() => handleAddOrder(itemData.id)}

@@ -64,7 +64,7 @@ export default function App() {
       "<br />" +
       commentaryContent +
       price +
-      " €<br />" +
+      " €<br /><br />" +
       orderContent +
       "</body></html>";
 

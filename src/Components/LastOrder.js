@@ -1,4 +1,5 @@
 import DisabledItemOrder from "./DisabledItemOrder.js";
+import TooltipWrapper from "./TooltipWrapper.js";
 
 export default function LastOrder({ lastOrder, imageDirectory, barType }) {
   function getBill() {
@@ -47,16 +48,13 @@ export default function LastOrder({ lastOrder, imageDirectory, barType }) {
         );
       })}
       <p className="orderCommentaryLine">
-        Total: {bill}€ <br />
-        Commentaires (optionnel) :
+        Total: {bill}€<br />
+        <br />
+        Commentaire (optionnel)
+        <TooltipWrapper message={`ex : ${commentaryExample}`} />
+        &nbsp;:
       </p>
-      <p className="commentaryExample">ex : {commentaryExample}</p>
-      <textarea
-        disabled
-        id="commentaire"
-        placeholder={`(optionnel) : ${commentaryExample}`}
-        value={lastOrder.commentary}
-      />
+      <textarea disabled id="commentaire" value={lastOrder.commentary} />
       <br />
       <p>&#10004; Commande envoyée</p>
     </>
