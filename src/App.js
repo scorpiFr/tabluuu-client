@@ -11,6 +11,7 @@ import Multipleimages from "./Components/Multipleimages.js";
 import Menu from "./Components/Menu.js";
 import Commande from "./Components/Commande.js";
 import OtherCaseError from "./Components/OtherCaseError.js";
+import getCurrentDateTime from "./Components/getCurrentDateTime.js";
 
 // http://tabluuu.fr:3000?barid=1&table=Table1
 // http://tabluuu.local:3000/?barid=1&table=Table1
@@ -73,7 +74,7 @@ export default function App() {
         ? barData.data.email_service
         : barData.data.email;
     // subject
-    const subject = `${price} € - ${Math.floor(Math.random() * 100000000)}`;
+    const subject = `${price} € - ${getCurrentDateTime()} - ${config.table}`;
     // sending mail
     sendMail_brevo(config.table, htmlContent, subject, email, "Tabluuu");
   }
