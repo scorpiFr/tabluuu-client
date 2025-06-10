@@ -1,3 +1,3 @@
-React bar project.
+React bar and kebab project.
 
 Tabluuu or not tabluuu ?
