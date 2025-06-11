@@ -11,6 +11,7 @@ export default function Commande({
 }) {
   const [nbrItemOrdered, setNbrItemOrdered] = useState(0);
   const [lastOrder, setLastOrder] = useState({ commentary: "", items: [] });
+  const [firstTimeAdd, setfirstTimeAdd] = useState(false);
 
   function resetLastOrder() {
     setLastOrder({ commentary: "", items: [] });
@@ -50,6 +51,15 @@ export default function Commande({
     });
     setNbrItemOrdered((n) => n + 1);
     resetLastOrder();
+
+    // scroll to top if first time add item
+    if (!firstTimeAdd) {
+      setfirstTimeAdd(true);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   }
 
   // remove 1 item to the order.

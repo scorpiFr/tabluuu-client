@@ -40,18 +40,20 @@ export default function App() {
     let orderContent = "";
     for (let cptL in lines) {
       for (let cptI in lines[cptL].items) {
-        if (lines[cptL].items[cptI].qty > 0) {
-          orderContent +=
-            lines[cptL].items[cptI].qty <= 1
-              ? ""
-              : lines[cptL].items[cptI].qty + " - ";
-          orderContent += lines[cptL].items[cptI].name + "<br />";
-          price +=
-            lines[cptL].items[cptI].qty *
-            parseFloat(lines[cptL].items[cptI].price);
+        if (lines[cptL].items[cptI].qty <= 0) {
+          continue;
         }
+        orderContent +=
+          lines[cptL].items[cptI].qty <= 1
+            ? ""
+            : lines[cptL].items[cptI].qty + " - ";
+        orderContent += lines[cptL].items[cptI].name + "<br />";
+        price +=
+          lines[cptL].items[cptI].qty *
+          parseFloat(lines[cptL].items[cptI].price);
       }
     }
+
     // table name
     const tableName = config.table.length > 0 ? config.table : "Tabluuu";
 
