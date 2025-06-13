@@ -15,7 +15,7 @@ import OtherCaseError from "./Components/OtherCaseError.js";
 export default function App() {
   const [barData, setBarData] = useState({
     data: [],
-    isLoading: false,
+    isLoading: true,
     error: false,
   });
 
