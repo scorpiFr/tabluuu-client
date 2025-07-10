@@ -83,7 +83,10 @@ export default function App() {
       // call api
       resetBarData();
       setBarData((m) => ({ ...m, isLoading: true }));
-      const res = await fetch(config.urlPrefix + config.barId + "/api.txt");
+      // const res = await fetch(config.urlPrefix + config.barId + "/api.txt");
+      const res = await fetch(
+        config.tabluuu_server + "/etablissementfrontdata/" + config.barId
+      );
       // internet error
       if (!res.ok) {
         console.log("fetching bar data error");
@@ -95,7 +98,8 @@ export default function App() {
         setBarData((m) => ({ ...m, error: true }));
       } else {
         // data found
-        setBarData((m) => ({ ...m, data: data, error: false }));
+        const data2 = cleanBarData(data);
+        setBarData((m) => ({ ...m, data: data2, error: false }));
         document.title = data.name;
         document.body.className = data.type === "bar" ? "bar" : "resto";
       }
@@ -105,6 +109,23 @@ export default function App() {
     } finally {
       setBarData((m) => ({ ...m, isLoading: false }));
     }
+  }
+
+  function cleanBarData(data) {
+    data.isAvailable = parseInt(data.isAvailable);
+    if (!data.lines || !data.lines.length) {
+      return data;
+    }
+    for (let i in data.lines) {
+      if (!data.lines[i].items || !data.lines[i].items.length) {
+        continue;
+      }
+      for (let j in data.lines[i].items) {
+        data.lines[i].items[j].price = parseFloat(data.lines[i].items[j].price);
+        data.lines[i].items[j].qty = 0;
+      }
+    }
+    return data;
   }
 
   useEffect(

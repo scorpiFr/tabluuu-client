@@ -1,7 +1,0 @@
-{
-  "name": "La belle étoile 2 - demo",
-  "type": "resto",
-  "isAvailable": 1,
-  "menutype": "image",
-  "images": ["5/menu1.jpg", "5/menu2.jpg", "5/menu3.jpg"]
-}

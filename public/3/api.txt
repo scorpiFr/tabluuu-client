@@ -1,7 +1,0 @@
-{
-  "name": "Housegang bar 3 - demo",
-  "type": "bar",
-  "isAvailable": 0,
-  "menutype": "image",
-  "images": ["2/menu2-1.jpg", "2/menu2-2.jpg"]
-}
