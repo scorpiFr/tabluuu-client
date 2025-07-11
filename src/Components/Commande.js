@@ -92,14 +92,14 @@ export default function Commande({
     return (
       <div className={`menu ${appClassName}`}>
         <p className="title">{barData.name.toUpperCase()}</p>
-        <div className="lineList1">
+        <div className="lineList2">
           <LastOrder
             lastOrder={lastOrder}
             imageDirectory={imageDirectory}
             barType={barData.type}
           />
         </div>
-        <div className="lineList1">
+        <div className="lineList2">
           <ItemLineListOrder
             lines={barData.lines}
             imageDirectory={imageDirectory}
