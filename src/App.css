@@ -65,12 +65,12 @@
 }
 
 textarea {
-  width: 25vw;
+  width: 400px;
   height: 100px;
 }
 
 textarea:disabled {
-  width: 25vw;
+  width: 400px;
   height: 100px;
   background-color: #a0a0a0;
 }
