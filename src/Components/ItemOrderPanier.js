@@ -22,9 +22,6 @@ export default function ItemOrderPanier({
     <div className="cadre">
       <div className="texte">
         <p className="panierItemTitle" nowrap="true">
-          {itemData.name}
-          {/* &nbsp;({itemData.price * itemData.qty}&nbsp;€) */}
-          &nbsp;
           <button
             className="minibutton-20"
             onClick={() => handleSubstractsOrder(itemData.id)}
@@ -38,6 +35,8 @@ export default function ItemOrderPanier({
           >
             +
           </button>
+          &nbsp;
+          {itemData.name}
         </p>
       </div>
     </div>

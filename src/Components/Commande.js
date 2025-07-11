@@ -92,23 +92,21 @@ export default function Commande({
     return (
       <div className={`menu ${appClassName}`}>
         <p className="title">{barData.name.toUpperCase()}</p>
-        <div className="flex-container2">
-          <div className="lineList1">
-            <ItemLineListOrder
-              lines={barData.lines}
-              imageDirectory={imageDirectory}
-              addOrder={handleAddOrder}
-              subtractOrder={handleSubtractOrder}
-              useTwoColumns={0}
-            />
-          </div>
-          <div className="lineList1">
-            <LastOrder
-              lastOrder={lastOrder}
-              imageDirectory={imageDirectory}
-              barType={barData.type}
-            />
-          </div>
+        <div className="lineList1">
+          <LastOrder
+            lastOrder={lastOrder}
+            imageDirectory={imageDirectory}
+            barType={barData.type}
+          />
+        </div>
+        <div className="lineList1">
+          <ItemLineListOrder
+            lines={barData.lines}
+            imageDirectory={imageDirectory}
+            addOrder={handleAddOrder}
+            subtractOrder={handleSubtractOrder}
+            useTwoColumns={1}
+          />
         </div>
       </div>
     );
@@ -132,21 +130,13 @@ export default function Commande({
     );
   }
 
-  // 1 column + panier
+  // 2 column + panier
   return (
     <div className={`menu ${appClassName}`}>
       <p className="title">{barData.name.toUpperCase()}</p>
-      <div className="flex-container2">
-        <div className="lineList1">
-          <ItemLineListOrder
-            lines={barData.lines}
-            imageDirectory={imageDirectory}
-            addOrder={handleAddOrder}
-            subtractOrder={handleSubtractOrder}
-            useTwoColumns={0}
-          />
-        </div>
-        <div className="lineList1">
+
+      <div className="lineList2">
+        <div className="lineList2">
           <Panier
             lines={barData.lines}
             imageDirectory={imageDirectory}
@@ -157,6 +147,13 @@ export default function Commande({
             barType={barData.type}
           />
         </div>
+        <ItemLineListOrder
+          lines={barData.lines}
+          imageDirectory={imageDirectory}
+          addOrder={handleAddOrder}
+          subtractOrder={handleSubtractOrder}
+          useTwoColumns={1}
+        />
       </div>
     </div>
   );

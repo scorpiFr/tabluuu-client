@@ -3,7 +3,6 @@ export default function DisabledItemOrder({ itemData, imageDirectory }) {
     <div className="cadre">
       <div className="texte">
         <p className="panierItemTitle" nowrap="true">
-          {itemData.name}&nbsp;
           <button className="minibutton-20" disabled="disabled">
             -
           </button>
@@ -11,6 +10,7 @@ export default function DisabledItemOrder({ itemData, imageDirectory }) {
           <button className="minibutton-20" disabled="disabled">
             +
           </button>
+          &nbsp;{itemData.name}
         </p>
       </div>
     </div>
