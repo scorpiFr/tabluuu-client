@@ -6,6 +6,7 @@ export default function ItemListOrder({
   addOrder,
   subtractOrder,
   useTwoColumns,
+  nbrItemOrdered,
 }) {
   return (
     <div
@@ -18,6 +19,7 @@ export default function ItemListOrder({
             imageDirectory={imageDirectory}
             addOrder={addOrder}
             subtractOrder={subtractOrder}
+            nbrItemOrdered={nbrItemOrdered}
             key={item.id}
           />
         );

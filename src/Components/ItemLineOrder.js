@@ -6,6 +6,7 @@ export default function ItemLineOrder({
   addOrder,
   subtractOrder,
   useTwoColumns,
+  nbrItemOrdered,
 }) {
   return (
     <>
@@ -16,6 +17,7 @@ export default function ItemLineOrder({
         addOrder={addOrder}
         subtractOrder={subtractOrder}
         useTwoColumns={useTwoColumns}
+        nbrItemOrdered={nbrItemOrdered}
         key={line.id}
       />
     </>

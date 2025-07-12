@@ -106,6 +106,7 @@ export default function Commande({
             addOrder={handleAddOrder}
             subtractOrder={handleSubtractOrder}
             useTwoColumns={1}
+            nbrItemOrdered={nbrItemOrdered}
           />
         </div>
       </div>
@@ -124,6 +125,7 @@ export default function Commande({
             addOrder={handleAddOrder}
             subtractOrder={handleSubtractOrder}
             useTwoColumns={1}
+            nbrItemOrdered={nbrItemOrdered}
           />
         </div>
       </div>
@@ -153,6 +155,7 @@ export default function Commande({
           addOrder={handleAddOrder}
           subtractOrder={handleSubtractOrder}
           useTwoColumns={1}
+          nbrItemOrdered={nbrItemOrdered}
         />
       </div>
     </div>

@@ -5,6 +5,7 @@ export default function ItemOrder({
   imageDirectory,
   addOrder,
   subtractOrder,
+  nbrItemOrdered,
 }) {
   // eslint-disable-next-line
   const [tmp, setTmp] = useState(0);
@@ -57,7 +58,7 @@ export default function ItemOrder({
               className="button-20"
               onClick={() => handleAddOrder(itemData.id)}
             >
-              Ajouter
+              {nbrItemOrdered > 0 ? "Ajouter" : "Commander"}
             </button>
           ) : (
             <>
